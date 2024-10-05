@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 VERSION = '0.0.1' 
 DESCRIPTION = 'pybible-api'
-Library for bible data'
+LONG_DESCRIPTION = 'Library for bible data'
 
 # Setting up
 setup(

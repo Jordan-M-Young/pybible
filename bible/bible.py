@@ -1,5 +1,5 @@
 import requests
-import helpers as h
+import bible.helpers as h
 import os
 import time
 import regex as reg
@@ -11,6 +11,13 @@ class BibleAPI():
         self.api_key = api_key
         self.base_url = base_url
         self.headers = {"api-key":self.api_key,"accept":"application/json"}
+        if not os.path.isdir("./data"):
+            os.mkdir("./data")
+            os.mkdir('./data/builds')
+            os.mkdir("./data/builds/bibles")
+            os.mkdir("./data/builds/books")
+            os.mkdir("./data/builds/chapters")
+
 
     def get_bibles(self, to_file: bool =False) -> requests.Response:
         url = f"{self.base_url}bibles"

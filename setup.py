@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
 
 VERSION = '0.0.1' 
-DESCRIPTION = 'pybible'
-LONG_DESCRIPTION = 'Python Library for bible data'
+DESCRIPTION = 'pybible-api'
+Library for bible data'
 
 # Setting up
 setup(
        # the name must match the folder name 'verysimplemodule'
-        name="pybible", 
+        name="pybible-api", 
         version=VERSION,
-        author="Jordan Young, Justyna Kaczmarzyk",
-        author_email="<youremail@email.com>",
+        author="Jordo993",
+        author_email="jordan.m.young0@gmail.com",
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         packages=find_packages(),

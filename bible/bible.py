@@ -339,6 +339,7 @@ class BibleAPI():
 
         wait: controls how long the program sleeps between calls to api
         """
+        #get bible books metadata
         filepath =f"./data/bible_{bible_id}_books.json"
         if os.path.isfile(filepath):
             print(f"File: {filepath} | Found")
@@ -347,7 +348,16 @@ class BibleAPI():
             print(f"File: {filepath} | Not Found... Fetching Bible: {bible_id}")
             bible_books_metadata = self.get_books(bible_id=bible_id,to_file=caching).json()
         
-        built_bible = {"bible":bible_id,"books":{}}
+        # get bible info
+        filepath =f"./data/bible_{bible_id}.json"
+        if os.path.isfile(filepath):
+            print(f"File: {filepath} | Found")
+            bible_metadata = h.json2dict(filepath)
+        else:
+            print(f"File: {filepath} | Not Found... Fetching Bible: {bible_id}")
+            bible_metadata = self.get_bible(bible_id=bible_id,to_file=caching).json()
+        
+        built_bible = {"bible":bible_id,"language":bible_metadata['data']['language']['name'],"books":{}}
 
         bible_books = bible_books_metadata['data']
         for book in bible_books:
